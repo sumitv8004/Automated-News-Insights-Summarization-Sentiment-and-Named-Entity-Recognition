@@ -49,7 +49,7 @@ This project is a **News Summarization & Analysis Web App** that allows users to
 
 ### **🔹 1️⃣ Clone the Repository**  
 ```bash
-git clone https://github.com/your-username/news-analysis.git
+git clone https://github.com/sumitv8004/Automated-News-Insights-Summarization-Sentiment-and-Named-Entity-Recognition.git
 cd news-analysis
 ```
 
