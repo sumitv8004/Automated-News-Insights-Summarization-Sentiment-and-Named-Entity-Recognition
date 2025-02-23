@@ -1,4 +1,4 @@
-![Screenshot 2025-02-23 211143](https://github.com/user-attachments/assets/67e831e2-3755-4548-9bdc-1952c3e62f77) **📌 Table of Contents**  
+ **📌 Table of Contents**  
 - [Introduction](#introduction)  
 - [Features](#features)  
 - [Tech Stack](#tech-stack)  
@@ -130,8 +130,7 @@ CREATE TABLE news_history (
 **📸 Screenshots: **  
 
 
-🔹 **Home Page**  
-![Home Page](static/homepage.png)  
+🔹 **Home Page**  ![Screenshot 2025-02-23 211143](https://github.com/user-attachments/assets/67e831e2-3755-4548-9bdc-1952c3e62f77)  
 
 🔹 **Summarized News**  
 ![Summary Page](static/summary.png)  
