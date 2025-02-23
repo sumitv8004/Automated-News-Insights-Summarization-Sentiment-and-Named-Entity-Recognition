@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Sentiment-based card colors */
+        .news-card.good { background-color: #d4edda; } /* Green */
+        .news-card.bad { background-color: #f8d7da; } /* Red */
+        .news-card.average { background-color: #cce5ff; } /* Blue */
+
+        /* Textarea Styling */
+        .text-input-container {
+            text-align: center;
+            margin: 20px auto;
+            width: 80%;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>News Summarizer</h1>
+
+    <!-- 🔎 News URL Input Box -->
+    <form action="/scrape_news" method="post">
+        <input type="text" name="news_url" placeholder="Enter News URL" required>
+        <button type="submit">Summarize</button>
+    </form>
+
+    <!-- 📝 Text Input for Direct Summarization -->
+    <div class="text-input-container">
+        <h2>Paste News Content</h2>
+        <form action="/process_text" method="post">
+            <textarea name="news_text" placeholder="Paste the full news article here..." required></textarea>
+            <button type="submit" class="submit-btn">Analyze</button>
+        </form>
+    </div>
+
+    <!-- Display Analysis Results (After Submission) -->
+    {% if summary %}
+        <h2>News Analysis Result:</h2>
+        <div class="news-card {{ sentiment }}">
+            <h2>Summarized News</h2>
+            <p>{{ summary }}</p>
+            <p><strong>Named Entities:</strong> {{ ner }}</p>
+            <p><strong>Category:</strong> {{ related_topic }}</p>
+        </div>
+    {% endif %}
+
+    <!-- Top 10 News -->
+    <h2>Top 10 News</h2>
+    <div class="news-container">
+        {% for news in news_list %}
+            <div class="news-card {{ news.sentiment }}">
+                <h2>
+                    <a href="{{ url_for('news_detail', url=news.url) }}" target="_blank">
+                        {{ news.title }}
+                    </a>
+                </h2>
+                <p><strong>Named Entities:</strong> {{ news.ner }}</p>
+                <p><strong>Category:</strong> {{ news.related_topic }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="particles-js"></div>
+
+    <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+    <script>
+      particlesJS.load('particles-js', '{{ url_for("static", filename="particles.json") }}', function() {
+        console.log('Particles.js loaded successfully');
+      });
+    </script>
+
+<div id="vanta-background"></div>
+
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+Flask
+newsapi-python
+newspaper3k
+langchain
+langchain_groq
