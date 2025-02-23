@@ -127,7 +127,7 @@ CREATE TABLE news_history (
 
 ---
 
-**📸 Screenshots:**  
+## **📸 Screenshots:**  
 
 
 🔹 **Home Page**  ![Screenshot 2025-02-23 211143](https://github.com/user-attachments/assets/67e831e2-3755-4548-9bdc-1952c3e62f77)  
